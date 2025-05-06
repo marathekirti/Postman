@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "f0b2f389-db90-4e2c-b507-8b9da2cb9c99",
+		"name": "Project # 7-DDT app.vwo.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44435020",
+		"_collection_link": "https://www.postman.com/api999-2051/workspace/kirtipostmanwork/collection/44435020-f0b2f389-db90-4e2c-b507-8b9da2cb9c99?action=share&source=collection_link&creator=44435020"
+	},
+	"item": [
+		{
+			"name": "Login API",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 401\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(401);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is within an acceptable range\", function () {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response has the required fields - message, showCaptcha, and captchaKey\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.be.an('object');\r",
+							"    pm.expect(responseData.message).to.exist;\r",
+							"    pm.expect(responseData.showCaptcha).to.exist;\r",
+							"    pm.expect(responseData.captchaKey).to.exist;\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Message is a non-empty string\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData.message).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Message should not be empty\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"ShowCaptcha is a boolean value\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData.showCaptcha).to.be.a('boolean');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response body contain 'Invalid User'\", function () {\r",
+							"    pm.expect(pm.response.text).to.include(\"Invalid User\");\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-GB,en-US;q=0.9,en;q=0.8"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json;charset=UTF-8"
+					},
+					{
+						"key": "origin",
+						"value": "https://app.vwo.com"
+					},
+					{
+						"key": "priority",
+						"value": "u=1, i"
+					},
+					{
+						"key": "referer",
+						"value": "https://app.vwo.com/"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Google Chrome\";v=\"135\", \"Not-A.Brand\";v=\"8\", \"Chromium\";v=\"135\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "Cookie",
+						"value": "_vwo_uuid=D95DE0B04758213AF7E765DD3812A19B5; _vwo_ssm=1; _vis_opt_exp_222_combi=2; _vis_opt_exp_299_combi=2; _vis_opt_exp_303_combi=2; _vis_opt_exp_318_combi=2; _vis_opt_exp_313_combi=2; ajs_user_id=1015820; ajs_anonymous_id=695a09da-6c15-4a95-9315-fdc52d7dd689; wgs_uuid=D1D297A4897598D2473C2C06EE3781F54; wgs_lt_ref=https://www.google.com/; wgs_lt_url=https://vwo.com/campaign/get-started/?utm_source=google&utm_medium=paid&utm_campaign=brand_othergeos_search_gold_bof_vwo_brand&utm_content=700388224984&utm_term=visual%20website%20optimizer&mobile=&network=g&device=c&gad_source=1&gbraid=0AAAAADGBh2g7LvWaH9yrlUlRyrLhhKcfQ&gclid=CjwKCAjwq7fABhB2EiwAwk-YbJMooQEc920PYAW7qsLTe_m0ASMnnuyKycSLcdpeumeE-097dscvGhoCQGAQAvD_BwE; wgs_lt_src=google; wgs_lt_uid=CjwKCAjwq7fABhB2EiwAwk-YbJMooQEc920PYAW7qsLTe_m0ASMnnuyKycSLcdpeumeE-097dscvGhoCQGAQAvD_BwE; wgs_lt_time=1745747269; wgs_url=https://vwo.com/campaign/get-started/?utm_source=google&utm_medium=paid&utm_campaign=brand_othergeos_search_gold_bof_vwo_brand&utm_content=700388224984&utm_term=visual%20website%20optimizer&mobile=&network=g&device=c&gad_source=1&gbraid=0AAAAADGBh2g7LvWaH9yrlUlRyrLhhKcfQ&gclid=CjwKCAjwq7fABhB2EiwAwk-YbJMooQEc920PYAW7qsLTe_m0ASMnnuyKycSLcdpeumeE-097dscvGhoCQGAQAvD_BwE; wgs_src=google; wgs_time=1745747269; wgs_uid=CjwKCAjwq7fABhB2EiwAwk-YbJMooQEc920PYAW7qsLTe_m0ASMnnuyKycSLcdpeumeE-097dscvGhoCQGAQAvD_BwE; wgs_ref=https://www.google.com/; _vwo_utm_term=visual website optimizer; _vwo_utm_medium=paid; _vwo_utm_source=google; _vwo_utm_content=700388224984; _vwo_utm_campaign=brand_othergeos_search_gold_bof_vwo_brand; _vwo_uuid_v2=D252683722DBDB8FD272E5B452F17345F|b004c5fe7c11966aafb3283fb031ec64; _vis_opt_exp_1145_combi=2; _vis_opt_exp_1242_combi=2; _vis_opt_exp_1149_combi=3; _mkto_trk=id:007-HHD-895&token:_mch-vwo.com-87ab40825e2ddf2399674f96d29d2149; OptanonConsent=isGpcEnabled=0&datestamp=Sun+Apr+27+2025+15%3A17%3A52+GMT%2B0530+(India+Standard+Time)&version=202403.2.0&browserGpcFlag=0&isIABGlobal=false&hosts=&genVendors=V11%3A0%2CV25%3A0%2CV9%3A0%2CV19%3A0%2CV13%3A0%2CV26%3A0%2CV4%3A0%2CV1%3A0%2CV12%3A0%2CV5%3A0%2CV15%3A0%2CV3%3A0%2CV10%3A0%2CV17%3A0%2CV24%3A0%2CV18%3A0%2CV2%3A0%2CV7%3A0%2CV22%3A0%2CV20%3A0%2CV14%3A0%2CV16%3A0%2CV23%3A0%2C&consentId=57907e32-26c9-499a-a67a-c8c8cc993842&interactionCount=0&isAnonUser=1&landingPath=https%3A%2F%2Fvwo.com%2Fcampaign%2Fget-started%2F%3Futm_source%3Dgoogle%26utm_medium%3Dpaid%26utm_campaign%3Dbrand_othergeos_search_gold_bof_vwo_brand%26utm_content%3D700388224984%26utm_term%3Dvisual%2520website%2520optimizer%26mobile%3D%26network%3Dg%26device%3Dc%26gad_source%3D1%26gbraid%3D0AAAAADGBh2g7LvWaH9yrlUlRyrLhhKcfQ%26gclid%3DCjwKCAjwq7fABhB2EiwAwk-YbJMooQEc920PYAW7qsLTe_m0ASMnnuyKycSLcdpeumeE-097dscvGhoCQGAQAvD_BwE&groups=C0001%3A1%2CC0002%3A0%2CC0003%3A0%2CC0004%3A0; _vis_opt_exp_1149_goal_275=1; _vis_opt_exp_1149_goal_274=1; _uetvid=af854b30234c11f092ecad4c0ee7d1ea|6ah2oo|1745748148797|2|1|bat.bing.com/p/insights/c/n; _ga=GA1.2.2059587965.1745758582; _vis_opt_s=4%7C; _vis_opt_test_cookie=1; _vis_opt_exp_328_combi=1; _vis_opt_exp_331_combi=1; _gid=GA1.2.1812048280.1746527935; _ga_LBVC51CNX9=GS2.2.s1746527938$o6$g1$t1746527949$j49$l0$h0; _vwo_sn=1103349%3A7%3Ar4.visualwebsiteoptimizer.com%3A5%3A1%3Areferrer%3D; _vwo_ds=3%3Aa_1%2Ct_1%3A0%241745424577%3A59.87939838%3A96_0_1_0_1%2C97_0_1_0_1%2C111_0_1_0_5%2C119_0_1_0_1%2C118_0_1_0_1%2C122_0_1_0_1%2C135_0_1_0_1%2C235_0_1_0_1%2C243_0_1_0_1%2C248_0_1_0_1%2C253_0_1_0_1%2C266_0_1_0_1%2C639_159_1_321916_2%2C867_0_1_321916_6%2C869_0_1_321916_9%2C1609_0_1_321916_1%2C1625_0_1_321916_1%3A13_1%2C16_1%2C22_1%2C42_1%2C66_1%2C67_1%2C68_1%2C59_1%2C20_1%2C48_1%3A1608_1%2C1607_1%2C1354_1%2C1353_1%2C627_1%2C172_1%2C28_1%2C23_1%2C15_1%2C14_1%3A1; _gcl_au=1.1.1397699926.1745758583.1840885647.1746527937.1746527964"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"{{email}}\",\r\n    \"password\":\"{{password}}3\",\r\n    \"remember\":false,\r\n    \"recaptcha_response_field\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://app.vwo.com/login",
+					"protocol": "https",
+					"host": [
+						"app",
+						"vwo",
+						"com"
+					],
+					"path": [
+						"login"
+					]
+				},
+				"description": "Generated from cURL: curl 'https://app.vwo.com/login' \\\r\n  -H 'accept: */*' \\\r\n  -H 'accept-language: en-GB,en-US;q=0.9,en;q=0.8' \\\r\n  -H 'content-type: application/json;charset=UTF-8' \\\r\n  -b '_vwo_uuid=D95DE0B04758213AF7E765DD3812A19B5; _vwo_ssm=1; _vis_opt_exp_222_combi=2; _vis_opt_exp_299_combi=2; _vis_opt_exp_303_combi=2; _vis_opt_exp_318_combi=2; _vis_opt_exp_313_combi=2; ajs_user_id=1015820; ajs_anonymous_id=695a09da-6c15-4a95-9315-fdc52d7dd689; wgs_uuid=D1D297A4897598D2473C2C06EE3781F54; wgs_lt_ref=https://www.google.com/; wgs_lt_url=https://vwo.com/campaign/get-started/?utm_source=google&utm_medium=paid&utm_campaign=brand_othergeos_search_gold_bof_vwo_brand&utm_content=700388224984&utm_term=visual%20website%20optimizer&mobile=&network=g&device=c&gad_source=1&gbraid=0AAAAADGBh2g7LvWaH9yrlUlRyrLhhKcfQ&gclid=CjwKCAjwq7fABhB2EiwAwk-YbJMooQEc920PYAW7qsLTe_m0ASMnnuyKycSLcdpeumeE-097dscvGhoCQGAQAvD_BwE; wgs_lt_src=google; wgs_lt_uid=CjwKCAjwq7fABhB2EiwAwk-YbJMooQEc920PYAW7qsLTe_m0ASMnnuyKycSLcdpeumeE-097dscvGhoCQGAQAvD_BwE; wgs_lt_time=1745747269; wgs_url=https://vwo.com/campaign/get-started/?utm_source=google&utm_medium=paid&utm_campaign=brand_othergeos_search_gold_bof_vwo_brand&utm_content=700388224984&utm_term=visual%20website%20optimizer&mobile=&network=g&device=c&gad_source=1&gbraid=0AAAAADGBh2g7LvWaH9yrlUlRyrLhhKcfQ&gclid=CjwKCAjwq7fABhB2EiwAwk-YbJMooQEc920PYAW7qsLTe_m0ASMnnuyKycSLcdpeumeE-097dscvGhoCQGAQAvD_BwE; wgs_src=google; wgs_time=1745747269; wgs_uid=CjwKCAjwq7fABhB2EiwAwk-YbJMooQEc920PYAW7qsLTe_m0ASMnnuyKycSLcdpeumeE-097dscvGhoCQGAQAvD_BwE; wgs_ref=https://www.google.com/; _vwo_utm_term=visual website optimizer; _vwo_utm_medium=paid; _vwo_utm_source=google; _vwo_utm_content=700388224984; _vwo_utm_campaign=brand_othergeos_search_gold_bof_vwo_brand; _vwo_uuid_v2=D252683722DBDB8FD272E5B452F17345F|b004c5fe7c11966aafb3283fb031ec64; _vis_opt_exp_1145_combi=2; _vis_opt_exp_1242_combi=2; _vis_opt_exp_1149_combi=3; _mkto_trk=id:007-HHD-895&token:_mch-vwo.com-87ab40825e2ddf2399674f96d29d2149; OptanonConsent=isGpcEnabled=0&datestamp=Sun+Apr+27+2025+15%3A17%3A52+GMT%2B0530+(India+Standard+Time)&version=202403.2.0&browserGpcFlag=0&isIABGlobal=false&hosts=&genVendors=V11%3A0%2CV25%3A0%2CV9%3A0%2CV19%3A0%2CV13%3A0%2CV26%3A0%2CV4%3A0%2CV1%3A0%2CV12%3A0%2CV5%3A0%2CV15%3A0%2CV3%3A0%2CV10%3A0%2CV17%3A0%2CV24%3A0%2CV18%3A0%2CV2%3A0%2CV7%3A0%2CV22%3A0%2CV20%3A0%2CV14%3A0%2CV16%3A0%2CV23%3A0%2C&consentId=57907e32-26c9-499a-a67a-c8c8cc993842&interactionCount=0&isAnonUser=1&landingPath=https%3A%2F%2Fvwo.com%2Fcampaign%2Fget-started%2F%3Futm_source%3Dgoogle%26utm_medium%3Dpaid%26utm_campaign%3Dbrand_othergeos_search_gold_bof_vwo_brand%26utm_content%3D700388224984%26utm_term%3Dvisual%2520website%2520optimizer%26mobile%3D%26network%3Dg%26device%3Dc%26gad_source%3D1%26gbraid%3D0AAAAADGBh2g7LvWaH9yrlUlRyrLhhKcfQ%26gclid%3DCjwKCAjwq7fABhB2EiwAwk-YbJMooQEc920PYAW7qsLTe_m0ASMnnuyKycSLcdpeumeE-097dscvGhoCQGAQAvD_BwE&groups=C0001%3A1%2CC0002%3A0%2CC0003%3A0%2CC0004%3A0; _vis_opt_exp_1149_goal_275=1; _vis_opt_exp_1149_goal_274=1; _uetvid=af854b30234c11f092ecad4c0ee7d1ea|6ah2oo|1745748148797|2|1|bat.bing.com/p/insights/c/n; _ga=GA1.2.2059587965.1745758582; _vis_opt_s=4%7C; _vis_opt_test_cookie=1; _vis_opt_exp_328_combi=1; _vis_opt_exp_331_combi=1; _gid=GA1.2.1812048280.1746527935; _ga_LBVC51CNX9=GS2.2.s1746527938$o6$g1$t1746527949$j49$l0$h0; _vwo_sn=1103349%3A7%3Ar4.visualwebsiteoptimizer.com%3A5%3A1%3Areferrer%3D; _vwo_ds=3%3Aa_1%2Ct_1%3A0%241745424577%3A59.87939838%3A96_0_1_0_1%2C97_0_1_0_1%2C111_0_1_0_5%2C119_0_1_0_1%2C118_0_1_0_1%2C122_0_1_0_1%2C135_0_1_0_1%2C235_0_1_0_1%2C243_0_1_0_1%2C248_0_1_0_1%2C253_0_1_0_1%2C266_0_1_0_1%2C639_159_1_321916_2%2C867_0_1_321916_6%2C869_0_1_321916_9%2C1609_0_1_321916_1%2C1625_0_1_321916_1%3A13_1%2C16_1%2C22_1%2C42_1%2C66_1%2C67_1%2C68_1%2C59_1%2C20_1%2C48_1%3A1608_1%2C1607_1%2C1354_1%2C1353_1%2C627_1%2C172_1%2C28_1%2C23_1%2C15_1%2C14_1%3A1; _gcl_au=1.1.1397699926.1745758583.1840885647.1746527937.1746527964' \\\r\n  -H 'origin: https://app.vwo.com' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://app.vwo.com/' \\\r\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"135\", \"Not-A.Brand\";v=\"8\", \"Chromium\";v=\"135\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36' \\\r\n  --data-raw '{\"username\":\"contact+aug@thetestingacademy.com\",\"password\":\"Ttxk\",\"remember\":false,\"recaptcha_response_field\":\"\"}'"
+			},
+			"response": []
+		}
+	]
+}
